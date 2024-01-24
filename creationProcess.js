@@ -34,9 +34,16 @@ function inputButtonFeature() {
   input_button.addEventListener('click', () => {
     const input_box = document.querySelector('.input')
     const number = input_box.value
-    removeAllPixels()
-    createGrid(number)
-    ratioDisplay(number)
+    if (number < 121) {
+      removeAllPixels()
+      createGrid(number)
+      ratioDisplay(number)
+    } else {
+      alert("cannot enter value more than 120")
+      input_box.value = ""
+      // const display_info_ratio = document.querySelector('.display-info-ratio')
+      // display_info_ratio.textContent = ""
+    }
   })
 }
 
@@ -47,7 +54,7 @@ function removeAllPixels() {
   }
 }
 
-function defaultGrid(){
+function defaultGrid() {
   const number = 16;
   createGrid(number)
   ratioDisplay(number)
